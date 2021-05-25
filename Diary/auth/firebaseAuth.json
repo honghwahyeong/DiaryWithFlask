@@ -1,0 +1,9 @@
+{
+  "apiKey": "AIzaSyDsdNu96zlSGjjTyIY-POUHEIShUAoJpv4",
+  "authDomain": "flask-firebase-diary.firebaseapp.com",
+  "databaseURL": "https://flask-firebase-diary-default-rtdb.firebaseio.com",
+  "projectId": "flask-firebase-diary",
+  "storageBucket": "flask-firebase-diary.appspot.com",
+  "messagingSenderId": "427990583969",
+  "appId": "1:427990583969:web:4d102e6cfdeaa2098d7ee0"
+}

@@ -7,8 +7,10 @@
     <title>FLASK_WORLD</title>
 </head>
 <body>
+    {% block message %}
+    {% endblock message %}
     <header>
-        <p>FLASK_WORLD</p>
+        <a href="{{url_for('index')}}"<p>FLASK_WORLD</p></a>
         {% block user %}
         
         {% endblock user %}

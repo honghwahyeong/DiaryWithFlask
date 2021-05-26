@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block user %}
-
+{% if user=="Login" %}
+<a href = "{{url_for('login')}}">Login</a>
+{% else %}
+<p>user: {{user}}</p>
+<a href="{{url_for('logout')}}">Logout</a>
+<a href="{{url_for('write')}}">글 쓰기</a>
+{% endif %}
+<a href="{{url_for('post_list')}}">글 목록보기</a>
 {% endblock user %}
 
 {% block contents %}

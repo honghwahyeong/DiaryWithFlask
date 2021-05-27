@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLASK_WORLD</title>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <title>
+        화형이의 다이어리!
+    </title>
 </head>
+
 <body>
     {% block message %}
     {% endblock message %}
     <header>
-        <a href="{{url_for('index')}}"<p>FLASK_WORLD</p></a>
+        <a href="{{url_for('index')}}">
+            <h1>화형이의 다이어리!<br></h1>
+        </a>
         {% block user %}
-        
+
         {% endblock user %}
     </header>
-   {% block contents %}
+    {% block contents %}
 
-   {% endblock contents %} 
-   <footer>
+    {% endblock contents %}
+    <footer>
 
-   </footer>
+    </footer>
 </body>
+
 </html>

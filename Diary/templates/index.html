@@ -2,7 +2,7 @@
 
 {% block user %}
 {% if user=="Login" %}
-<a href = "{{url_for('login')}}">Login</a>
+<a href="{{url_for('login')}}">Login</a>
 {% else %}
 <p>user: {{user}}</p>
 <a href="{{url_for('logout')}}">Logout</a>

@@ -44,10 +44,12 @@ class DBModule:
 
     def post_list(self):
         post_lists = self.db.child("diary_list").get().val()
+        print(post_lists)
         return post_lists
 
     def post_detail(self, pid):
-        pass
+        post = self.db.child("diary_list").get().val()[pid]
+        return post
 
     def get_uset(self, uid):
         pass

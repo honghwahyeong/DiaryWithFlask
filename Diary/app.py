@@ -22,12 +22,13 @@ def post_list():
         length = 0
     else:
         length = len(post_list)
-    return render_template("post_list.html", post_list=post_list, length=length)
+    return render_template("post_list.html", post_list=post_list.items(), length=length)
 
 
-@app.route("/post/<int:pid>")
+@app.route("/post/<string:pid>")
 def post(pid):
-    pass
+    post = DB.post_detail(pid)
+    return render_template("post_detail.html", post=post)
 
 
 @app.route("/logout")

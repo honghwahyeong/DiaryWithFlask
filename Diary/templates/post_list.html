@@ -6,13 +6,24 @@
 
 {% block contents %}
 {% if length==0 %}
-    <p>작성된 다이어리가 없습니다.</p>
+<p>작성된 다이어리가 없습니다.</p>
 {% else %}
-    {% for post in post_list %}
+{% for diary in post_list %}
+<a href="{{url_for('post',pid=diary[0])}}">
     <div>
-        {{post[0]}}
-        {{post[1].p}}
+        <div class="list">
+            <div class="title">
+                <h2>제목: {{diary[1].title}}</h2>
+                <div class="uid">
+                    <h6>작성자: {{diary[1].uid}}</h6>
+                </div>
+            </div>
+            <div class="content">
+                <h4>내용: {{diary[1].contents}}</h4>
+            </div>
+        </div>
     </div>
-    {% endfor %}
+</a>
+{% endfor %}
 {% endif %}
 {% endblock contents %}

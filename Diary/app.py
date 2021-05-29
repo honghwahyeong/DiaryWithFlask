@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request, flash, session
 from DB_handler import DBModule
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key = "ghdghkgudsksmsghdghkgud"
@@ -20,6 +21,7 @@ def post_list():
     post_list = DB.post_list()
     if post_list == None:
         length = 0
+        return redirect(url_for("index"))
     else:
         length = len(post_list)
     return render_template("post_list.html", post_list=post_list.items(), length=length)
@@ -91,12 +93,14 @@ def write():
         return redirect(url_for("login"))
 
 
-@app.route("/write_done", methods=["get"])
+@app.route("/write_done", methods=["POST"])
 def write_done():
-    title = request.args.get("title")
-    contents = request.args.get("contents")
+    title = request.form.get("title")
+    contents = request.form.get("contents")
     uid = session.get("uid")
-    DB.write_post(title, contents, uid)
+    file = request.files["file"]
+    file.save(secure_filename(file.filename))
+    DB.write_post(title, contents, uid, file)
     return redirect(url_for("index"))
 
 

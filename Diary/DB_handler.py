@@ -10,6 +10,7 @@ class DBModule:
 
         firebase = pyrebase.initialize_app(config)
         self.db = firebase.database()
+        self.storage = firebase.storage()
 
     def login(self, uid, pwd):
         users = self.db.child("users").get().val()
@@ -37,10 +38,11 @@ class DBModule:
         else:
             return False
 
-    def write_post(self, title, contents, uid):
+    def write_post(self, title, contents, uid, file):
         diary_id = str(uuid.uuid4())[:12]
         information = {"title": title, "contents": contents, "uid": uid}
         self.db.child("diary_list").child(diary_id).set(information)
+        self.storage.child(diary_id).put(file)
 
     def post_list(self):
         post_lists = self.db.child("diary_list").get().val()

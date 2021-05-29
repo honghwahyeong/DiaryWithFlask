@@ -9,9 +9,10 @@
 {% endblock message %}
 
 {% block contents %}
-<form action="{{url_for('write_done')}}" method="get">
+<form action="{{url_for('write_done')}}" method="POST" enctype="multipart/form-data">
     <input type="text" placeholder="제목을 입력해주세요" name="title" id="title" required>
     <input type="text" placeholder="본문을 입력해주세요" name="contents" id="contents" required>
+    <input type="file" name="file" id="file" required>
     <button type="submit">작성</button>
 </form>
 {% endblock contents %}

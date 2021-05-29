@@ -1,9 +1,9 @@
 {
-  "apiKey": "AIzaSyDsdNu96zlSGjjTyIY-POUHEIShUAoJpv4",
-  "authDomain": "flask-firebase-diary.firebaseapp.com",
-  "databaseURL": "https://flask-firebase-diary-default-rtdb.firebaseio.com",
-  "projectId": "flask-firebase-diary",
-  "storageBucket": "flask-firebase-diary.appspot.com",
-  "messagingSenderId": "427990583969",
-  "appId": "1:427990583969:web:4d102e6cfdeaa2098d7ee0"
+  "apiKey": "AIzaSyDNKsIlN9bFfWnUGE9ibEpvAArp67aFcbc",
+  "authDomain": "flask-python-4b7f8.firebaseapp.com",
+  "databaseURL": "https://flask-python-4b7f8-default-rtdb.firebaseio.com",
+  "projectId": "flask-python-4b7f8",
+  "storageBucket": "flask-python-4b7f8.appspot.com",
+  "messagingSenderId": "619277744750",
+  "appId": "1:619277744750:web:5ab742f56b525212f2047f"
 }

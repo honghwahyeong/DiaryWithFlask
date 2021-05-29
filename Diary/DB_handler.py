@@ -44,14 +44,25 @@ class DBModule:
         self.db.child("diary_list").child(diary_id).set(information)
         self.storage.child(diary_id).put(file)
 
+    def edit_post(self, title, contents, pid):
+        changed_info = {"title": title, "contents": contents}
+        self.db.child("diary_list").child(pid).update(changed_info)
+
     def post_list(self):
         post_lists = self.db.child("diary_list").get().val()
-        print(post_lists)
         return post_lists
 
     def post_detail(self, pid):
         post = self.db.child("diary_list").get().val()[pid]
-        return post
+        post_id = pid
+        return post, post_id
+
+    def get_image(self, pid):
+        image = self.storage.child(pid).get_url(None)
+        return image
+
+    def delete_post(self, pid):
+        self.db.child("diary_list").child(pid).remove()
 
     def get_uset(self, uid):
         pass

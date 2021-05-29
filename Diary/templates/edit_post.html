@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block message %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<p>{{messages[0][1]}}</p>
+{% endif %}
+{% endwith %}
+{% endblock message %}
+
+{% block contents %}
+<form action="{{url_for('edit_done',pid=post_id)}}" method="POST" enctype="multipart/form-data">
+    <input type="text" value="{{post.title}}" name="title" id="title" required>
+    <input type="text" value="{{post.contents}}" name="contents" id="contents" required>
+    <input type="file" name="file" id="file">
+    <button type="submit">수정</button>
+</form>
+{% endblock contents %}

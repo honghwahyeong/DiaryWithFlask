@@ -7,12 +7,23 @@
 {% endwith %}
 {% endblock message %}
 
+{% block user %}
+<div class="index">
+    <p><a href="{{url_for('login')}}">Login</a></p>
+</div>
+{% endblock user %}
+
 {% block contents %}
-<form action="{{url_for('login_done')}}" method="get">
-    <p>userid: </p>
-    <input type="text" name="id" id="id">
-    <p>password: </p>
-    <input type="password" name="pwd" id="pwd">
-    <button type="submit">로그인</button>
-</form>
+<div class="body_login">
+    <form action="{{url_for('login_done')}}" method="get">
+        <p>ID :
+            <input type="text" name="id" id="id">
+        </p>
+        <br><br>
+        <p>Password:
+            <input type="password" name="pwd" id="pwd">
+        </p><br><br>
+        <button type="submit">로그인</button>
+    </form>
+</div>
 {% endblock contents %}

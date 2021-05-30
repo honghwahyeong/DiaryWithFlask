@@ -1,19 +1,27 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 
-{% block user %}
-
-{% endblock user %}
 
 {% block contents %}
-<p>제목: {{post.title}}</p>
-<p>유저: {{post.uid}}</p>
-<p>본문: {{post.contents}}</p>
-<p>사진: <img src="{{image}}" width="100"></p>
-<br><br><br>
-<form action="{{url_for('delete_post',pid=post_id)}}">
-    <button type="submit">삭제</button>
-</form>
-<form action="{{url_for('edit_post',pid=post_id)}}">
-    <button type="submit">수정</button>
-</form>
+<div class="detail_box">
+    <div class="detail_box_title">
+        <h1>{{post.title}}</h1>
+    </div>
+    <div class="detail_box_uid">
+        <h5>작성자: {{post.uid}}</h5>
+    </div>
+    <div class="detail_box_contents">
+        <h3>{{post.contents}}</h3>
+    </div>
+    <div class="detail_box_image" style="width: 400px; height: auto; overflow: hidden;">
+        <p><img src="{{image}}" style="width: 400px; height: auto;"></p>
+    </div>
+</div>
+<div class="detail_delete_edit">
+    <form action="{{url_for('edit_post',pid=post_id)}}">
+        <button type="submit">수정</button>
+    </form>
+    <form action="{{url_for('delete_post',pid=post_id)}}">
+        <button type="submit">삭제</button>
+    </form>
+</div>
 {% endblock contents %}

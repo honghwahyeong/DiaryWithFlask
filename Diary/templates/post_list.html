@@ -1,29 +1,26 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 
-{% block user %}
-
-{% endblock user %}
 
 {% block contents %}
 {% if length==0 %}
 <p>작성된 다이어리가 없습니다.</p>
 {% else %}
-{% for diary in post_list %}
-<a href="{{url_for('post',pid=diary[0])}}">
-    <div>
-        <div class="list">
-            <div class="title">
-                <h2>제목: {{diary[1].title}}</h2>
-                <div class="uid">
-                    <h6>작성자: {{diary[1].uid}}</h6>
-                </div>
+<div class="post_list">
+    {% for diary in post_list %}
+    <div class="post_list_box">
+        <a href="{{url_for('post',pid=diary[0])}}">
+            <div class="post_list_box_title">
+                <h2>{{diary[1].title}}</h2>
             </div>
-            <div class="content">
-                <h4>내용: {{diary[1].contents}}</h4>
+            <div class="post_list_box_uid">
+                <h6>작성자: {{diary[1].uid}}</h6>
             </div>
-        </div>
+            <div class="post_list_box_contents">
+                <h4>{{diary[1].contents}}</h4>
+            </div>
+        </a>
     </div>
-</a>
-{% endfor %}
+    {% endfor %}
+</div>
 {% endif %}
 {% endblock contents %}

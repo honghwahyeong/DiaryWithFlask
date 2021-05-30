@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 
 {% block message %}
 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -9,10 +9,23 @@
 {% endblock message %}
 
 {% block contents %}
-<form action="{{url_for('edit_done',pid=post_id)}}" method="POST" enctype="multipart/form-data">
-    <input type="text" value="{{post.title}}" name="title" id="title" required>
-    <input type="text" value="{{post.contents}}" name="contents" id="contents" required>
-    <input type="file" name="file" id="file">
-    <button type="submit">수정</button>
-</form>
+<div class="write_or_edit_post">
+    <form action="{{url_for('edit_done',pid=post_id)}}" method="POST" enctype="multipart/form-data">
+        <div class="write_or_edit_post_title">
+            <input type="text" value="{{post.title}}" name="title" id="title"
+                style="width: 90%; height: 30px; font-size: 25px;" required>
+        </div>
+        <br>
+        <div class="write_or_edit_post_contents">
+            <textarea rows="5" cols="40" name="contents" id="contents"
+                style="width: 80%; height: 300px; font-size: 15px;" required>{{post.contents}}</textarea>
+        </div>
+        <br>
+        <div class="write_or_edit_post_file">
+            <input type="file" name="file" id="file">
+        </div>
+        <br>
+        <button type="submit">수정</button>
+    </form>
+</div>
 {% endblock contents %}

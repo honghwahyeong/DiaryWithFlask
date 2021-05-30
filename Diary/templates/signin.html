@@ -1,22 +1,22 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
+
 {% block message %}
 {% with messages = get_flashed_messages(with_categories=true) %}
 {% if messages %}
-    <p>{{messages[0][1]}}</p>
+<p>{{messages[0][1]}}</p>
 {% endif %}
 {% endwith %}
 {% endblock message %}
 
 {% block contents %}
-    <form action="{{url_for("signin_done")}}" method="get">
-        <p>email: </p>
-        <input type="email" name="email" id="email"/>
-        <p>userid: </p>
-        <input type="text" name="id" id="id">
-        <p>password: </p>
-        <input type="password" name="pwd" id="pwd">
-        <p>name: </p>
-        <input type="text" name="name" id="name">
-        <button type="submit">회원가입</button>
+<div class="body_signin">
+    <form action="{{url_for('signin_done')}}" method="get">
+        <h3>회원가입</h3><br>
+        <p><input type="email" placeholder="email" name="email" id="email" /></p><br>
+        <p><input type="text" placeholder="ID" name="id" id="id"></p><br>
+        <p><input type="password" placeholder="Password" name="pwd" id="pwd"></p><br>
+        <p><input type="text" placeholder="Name" name="name" id="name"></p><br>
+        <button type="submit"> 회원가입 </button>
     </form>
+</div>
 {% endblock contents %}

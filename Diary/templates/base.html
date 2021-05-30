@@ -15,19 +15,37 @@
 <body>
     {% block message %}
     {% endblock message %}
-    <header>
-        <a href="{{url_for('index')}}">
-            <h1>화형이의 다이어리!<br></h1>
-        </a>
-        {% block user %}
+    <header class="header">
+        <div class="header_title">
+            <div class="signin">
+                <a href="{{url_for('signin')}}">회원가입</a>
+            </div>
+            <a href="{{url_for('post_list')}}">
+                <h1>화형이의 다이어리!</h1>
+                <p>Software Engineering Project</p>
+            </a>
+        </div>
+        <div class="default">
+            {% block user %}
 
-        {% endblock user %}
+            {% endblock user %}
+            <a href="{{url_for('post_list')}}">글 목록</a>
+        </div>
     </header>
-    {% block contents %}
+    <div class="body">
+        {% block contents %}
 
-    {% endblock contents %}
-    <footer>
-
+        {% endblock contents %}
+    </div>
+    <footer id="footer">
+        <p class="copyright">
+            DESIGN
+            BY
+            <a href="#">HwaHyeong</a>
+            <a href="https://github.com/honghwahyeong" class="admin">
+                My GitHub
+            </a>
+        </p>
     </footer>
 </body>
 

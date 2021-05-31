@@ -1,6 +1,7 @@
 import pyrebase
 import json
 import uuid
+from datetime import datetime
 
 
 class DBModule:
@@ -40,7 +41,13 @@ class DBModule:
 
     def write_post(self, title, contents, uid, file):
         diary_id = str(uuid.uuid4())[:12]
-        information = {"title": title, "contents": contents, "uid": uid}
+        posting_time = str(datetime.now())[:19]
+        information = {
+            "title": title,
+            "contents": contents,
+            "uid": uid,
+            "time": posting_time,
+        }
         self.db.child("diary_list").child(diary_id).set(information)
         self.storage.child(diary_id).put(file)
 
@@ -50,6 +57,12 @@ class DBModule:
 
     def post_list(self):
         post_lists = self.db.child("diary_list").get().val()
+        temp = sorted(
+            list(post_lists.items()), key=lambda x: x[1]["time"], reverse=True
+        )
+        post_lists.clear()
+        post_lists.update(temp)
+        print(temp)
         return post_lists
 
     def post_detail(self, pid):
@@ -62,7 +75,7 @@ class DBModule:
         return image
 
     def delete_post(self, pid):
-        self.db.child("diary_list").child(pid).remove()
+        self.db.child("diary_list").child(pid).set({})
 
     def get_uset(self, uid):
         pass

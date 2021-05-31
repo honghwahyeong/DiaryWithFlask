@@ -12,6 +12,7 @@
     height: 175px;
     text-align: center;
     background-color: thistle;
+    /*background: linear-gradient(#d299c2, #fef9d7);*/
     border-bottom: 1px solid #999;
 }
 
@@ -97,6 +98,10 @@
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 4%;
+}
+.post_list_box_time {
+    text-align: right;
+    margin-top: 45px;
 }
 
 .detail_box {

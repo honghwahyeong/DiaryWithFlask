@@ -62,7 +62,6 @@ class DBModule:
         )
         post_lists.clear()
         post_lists.update(temp)
-        print(temp)
         return post_lists
 
     def post_detail(self, pid):
@@ -76,6 +75,3 @@ class DBModule:
 
     def delete_post(self, pid):
         self.db.child("diary_list").child(pid).set({})
-
-    def get_uset(self, uid):
-        pass

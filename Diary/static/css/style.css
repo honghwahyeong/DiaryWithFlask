@@ -107,26 +107,27 @@
 .detail_box {
     width: 70%;
     margin: 5% 15%;
+    border: 1px solid #999;
 }
 .detail_box_title {
     letter-spacing: 2px;
-    text-align: left;
-    padding-left: 30px;
+    text-align: center;
+    margin-top: 3%;
 }
 .detail_box_uid {
     text-align: right;
     font-style: italic;
-    margin-top: -30px;
+    margin-right: 20px;
 }
 .detail_box_contents {
     text-align: left;
-    margin-top: 8%;
+    margin-top: 5%;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 7%;
 }
 .detail_box_image {
-    padding-left: 35%;
+    padding-left: 30%;
     padding-bottom: 5%;
 }
 .detail_delete_edit {

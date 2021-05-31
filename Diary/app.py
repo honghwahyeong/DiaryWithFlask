@@ -15,7 +15,9 @@ def index():
         user = session["uid"]
     else:
         user = "Login"
-    return render_template("index.html", user=user)
+        return render_template("login.html")
+    post_lists = DB.post_list()
+    return redirect(url_for("post_list"))
 
 
 @app.route("/list")
@@ -108,11 +110,6 @@ def signin_done():
     else:
         flash("이미 존재하는 아이디 입니다.")
         return redirect(url_for("signin"))
-
-
-@app.route("/user/<uid>")
-def user(uid):
-    pass
 
 
 @app.route("/write")

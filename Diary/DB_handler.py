@@ -55,6 +55,11 @@ class DBModule:
         changed_info = {"title": title, "contents": contents}
         self.db.child("diary_list").child(pid).update(changed_info)
 
+    def edit_post_with_image(self, title, contents, pid, file):
+        changed_info = {"title": title, "contents": contents}
+        self.db.child("diary_list").child(pid).update(changed_info)
+        self.storage.child(pid).put(file)
+
     def post_list(self):
         post_lists = self.db.child("diary_list").get().val()
         temp = sorted(

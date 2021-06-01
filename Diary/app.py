@@ -154,7 +154,14 @@ def edit_done(pid):
     file = request.files["file"]
     temp = tempfile.NamedTemporaryFile(delete=False)
     file.save(temp.name)
-    DB.edit_post(title, contents, pid)
+    file_name = (str(file)).split(" ")[1]
+    print(file_name)
+    print(temp.name)
+    if file_name == "''":
+        DB.edit_post(title, contents, pid)
+    else:
+        DB.edit_post_with_image(title, contents, pid, temp.name)
+        os.remove(temp.name)
     return redirect(url_for("post_list"))
 
 

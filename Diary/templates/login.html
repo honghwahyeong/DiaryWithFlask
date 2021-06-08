@@ -1,18 +1,10 @@
 {% extends "base.html" %}
-{% block message %}
-{% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
-<p>{{messages[0][1]}}</p>
-{% endif %}
-{% endwith %}
-{% endblock message %}
 
 {% block user %}
 <div class="index">
     <p><a href="{{url_for('login')}}">Login</a></p>
 </div>
 {% endblock user %}
-
 {% block contents %}
 <div class="body_login">
     <form action="{{url_for('login_done')}}" method="get">
@@ -27,3 +19,12 @@
     </form>
 </div>
 {% endblock contents %}
+{% block message %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="message">
+    <p style="color: red">{{messages[0][1]}}</p>
+</div>
+{% endif %}
+{% endwith %}
+{% endblock message %}

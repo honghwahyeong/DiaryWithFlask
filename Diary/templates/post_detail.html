@@ -25,3 +25,12 @@
     </form>
 </div>
 {% endblock contents %}
+{% block message %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="message">
+    <p style="color: red">{{messages[0][1]}}</p>
+</div>
+{% endif %}
+{% endwith %}
+{% endblock message %}

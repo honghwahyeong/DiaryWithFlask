@@ -1,13 +1,5 @@
 {% extends "index.html" %}
 
-{% block message %}
-{% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
-<p>{{messages[0][1]}}</p>
-{% endif %}
-{% endwith %}
-{% endblock message %}
-
 {% block contents %}
 <div class="write_or_edit_post">
     <form action="{{url_for('edit_done',pid=post_id)}}" method="POST" enctype="multipart/form-data">
@@ -30,3 +22,12 @@
     </form>
 </div>
 {% endblock contents %}
+{% block message %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="message">
+    <p style="color: red">{{messages[0][1]}}</p>
+</div>
+{% endif %}
+{% endwith %}
+{% endblock message %}

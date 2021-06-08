@@ -58,6 +58,7 @@ def delete_post(pid):
         return redirect(url_for("post_list"))
     else:
         print("작성자가 아님")
+        flash("삭제 권한이 없습니다.")
         return redirect(url_for("post", pid=pid))
 
 
@@ -144,6 +145,7 @@ def edit_post(pid):
     if user == post["uid"]:
         return render_template("edit_post.html", post=post, post_id=post_id, user=user)
     else:
+        flash("수정 권한이 없습니다.")
         return redirect(url_for("post", pid=post_id))
 
 
